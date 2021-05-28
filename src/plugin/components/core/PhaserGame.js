@@ -36,15 +36,13 @@ export default {
             }
         },
     },
-    render(h) {
+    created() {
         const game = new Phaser.Game(this.gameOptions)
         this._game = game
-
-        return h('div', this.$slots.default)
     },
     beforeDestroy() {
-        if (this._game) {
-            this._game.destroy(true)
+        if (this.$game) {
+            this.$game.destroy(true)
         }
     },
 }

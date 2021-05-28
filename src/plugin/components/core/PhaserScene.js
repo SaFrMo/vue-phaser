@@ -1,4 +1,3 @@
-import Phaser from 'phaser'
 import SceneExtender from '../../libs/sceneExtender'
 import base from '../base'
 
@@ -29,16 +28,16 @@ export default {
     },
     data() {
         return {
-            scene: null
+            _scene: null
         }
     },
-    mounted() {
-        this.scene = SceneExtender(this.sceneKey, {
+    created() {
+        this._scene = SceneExtender(this.sceneKey, {
             init: this.init,
             preload: this.preload,
             create: this.create
         })
-        this.$game.scene.add(this.sceneKey, this.scene)
+        this.$game.scene.add(this.sceneKey, this._scene)
         this.$game.scene.start(this.sceneKey)
     },
     render(h) {
