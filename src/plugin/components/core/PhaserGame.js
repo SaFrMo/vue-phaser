@@ -1,10 +1,9 @@
 import Phaser from 'phaser'
+import base from '../base'
 
 export default {
+    ...base,
     name: 'phaser-game',
-    mounted() {
-        console.log('game here')
-    },
     data() {
         return {
             id: -1,
@@ -39,19 +38,11 @@ export default {
     },
     render(h) {
         const game = new Phaser.Game(this.gameOptions)
-        console.log('rendering')
         this._game = game
-        // this.id = this.$gamesCreated
-        // this.$games[this.$gamesCreated] = game
-        // this.$gamesCreated++
 
-        // return this.$slots.default as any
         return h('div', this.$slots.default)
     },
     beforeDestroy() {
-        // if (this.$games && this.$games[this.id]) {
-        //     this.$games[this.id].destroy(true)
-        // }
         if (this._game) {
             this._game.destroy(true)
         }

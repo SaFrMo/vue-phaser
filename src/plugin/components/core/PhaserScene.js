@@ -1,7 +1,9 @@
 import Phaser from 'phaser'
 import SceneExtender from '../../libs/sceneExtender'
+import base from '../base'
 
 export default {
+    ...base,
     name: 'phaser-scene',
     props: {
         sceneKey: {
@@ -36,7 +38,6 @@ export default {
             preload: this.preload,
             create: this.create
         })
-        console.log(this)
         this.$game.scene.add(this.sceneKey, this.scene)
         this.$game.scene.start(this.sceneKey)
     },
