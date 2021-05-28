@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import base from '../base'
+import base from '../common/base'
 
 export default {
     ...base,

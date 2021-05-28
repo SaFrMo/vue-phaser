@@ -1,5 +1,5 @@
 import components from './components'
-import gameMixin from './libs/gameMixin'
+import gameMixin from './mixins/gameMixin'
 
 const output = (Vue, opts = {}) => {
     // register mixins
