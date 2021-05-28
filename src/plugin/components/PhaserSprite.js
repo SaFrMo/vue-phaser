@@ -1,5 +1,4 @@
 import base from './base'
-import { waitFor } from '../libs/utils'
 
 export default {
     ...base,
@@ -8,9 +7,19 @@ export default {
         spriteKey: {
             type: String,
             required: true
-        }
+        },
+        x: { type: Number, default: 0 },
+        y: { type: Number, default: 0 }
     },
     async mounted() {
-        this.$scene.add.image(400, 300, this.spriteKey)
+        this._sprite = this.$scene.add.image(this.x, this.y, this.spriteKey)
+    },
+    watch: {
+        x(newVal) {
+            this._sprite.setX(newVal)
+        },
+        y(newVal) {
+            this._sprite.setY(newVal)
+        }
     }
 }
