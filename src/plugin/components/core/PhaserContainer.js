@@ -1,7 +1,6 @@
 import base from '../common/base'
 import movable from '../../mixins/movable'
 
-
 export default {
     ...base,
     name: 'phaser-container',

@@ -35,6 +35,9 @@ export default {
         const sceneKey = this.sceneKey
         const preloadQueue = this.preloadQueue
 
+        // ***NOTE***
+        // `this` in this class refers to the Phaser.Scene extension,
+        // NOT the Vue component - that's why we needed to declare the extra vars above
         class MyScene extends Phaser.Scene {
             constructor() {
                 super({
@@ -65,6 +68,7 @@ export default {
             }
             create(data) {
                 if (_create) _create(this, data)
+                // indicate to the Vue component that we're initialized
                 vm.created = true
             }
             update(time, delta) {
@@ -77,6 +81,7 @@ export default {
         this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
     },
     render(h) {
+        // prevent rendering children until we're fully initialized
         if (this.created) {
             return h('div', this.$slots.default)
         } else {
