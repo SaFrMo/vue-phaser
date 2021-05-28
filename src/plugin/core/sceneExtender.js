@@ -1,10 +1,6 @@
 import Phaser from 'phaser'
 
 function SceneExtender(key, options = {}) {
-    // if (!new.target) {
-    //     throw new Error("Uncaught TypeError: Class constructor SceneExtender cannot be invoked without 'new'")
-    // }
-
     class ExtendedScene extends Phaser.Scene {
         constructor() {
             super(key)

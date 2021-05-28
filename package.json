@@ -1,7 +1,8 @@
 {
-  "name": "vue-phaser-js",
+  "name": "vue-phaser",
   "version": "0.1.0",
   "private": true,
+  "main": "src/plugin",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build"
