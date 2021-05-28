@@ -31,6 +31,9 @@ export default {
         },
         sceneData: {
             type: Object, default: () => ({})
+        },
+        preloadQueue: {
+            type: Array, default: () => []
         }
     },
     data() {
@@ -46,6 +49,7 @@ export default {
         const _create = this.create
         const props = this.$props
         const sceneKey = this.sceneKey
+        const preloadQueue = this.preloadQueue
 
         class MyScene extends Phaser.Scene {
             constructor() {
@@ -59,6 +63,21 @@ export default {
             }
             preload(data) {
                 if (_preload) _preload(this, data)
+
+                preloadQueue.forEach(preload => {
+                    if (typeof preload === 'string') {
+                        // handle a file url - `/example/test.jpg` loads that URL as sprite with key `test
+                        const matches = preload.match(/([^\/]*)\.[^\.]*$/)
+                        if (matches && matches[1]) {
+                            const key = matches[1]
+                            this.load.image(key, preload)
+                        }
+                    } else {
+                        // full options - accepts:
+                        // { type?, key, url, options? }
+                        this.load[preload.type || 'image'](preload.key, preload.url, preload.options || {})
+                    }
+                })
             }
             create(data) {
                 if (_create) _create(this, data)
