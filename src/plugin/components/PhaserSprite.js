@@ -1,10 +1,20 @@
 import base from './base'
+import { waitFor } from '../libs/utils'
 
 export default {
     ...base,
     name: 'phaser-sprite',
-    mounted() {
-        console.log(this)
-        this.$scene.add.image(400, 300, 'space')
+    props: {
+        spriteKey: {
+            type: String,
+            required: true
+        }
+    },
+    async created() {
+        const image = await waitFor(this, '$scene.add.image')
+        console.log(image())
+        // if (image) {
+        //     image(400, 300, this.spriteKey)
+        // }
     }
 }

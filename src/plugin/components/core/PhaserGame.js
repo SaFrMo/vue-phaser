@@ -28,15 +28,12 @@ export default {
                         gravity: { y: 200 },
                     },
                 },
-                // scene: {
-                //     preload: this.preload as Phaser.Types.Scenes.ScenePreloadCallback,
-                //     create: this.create as Phaser.Types.Scenes.SceneCreateCallback,
-                // },
                 ...this.options,
             }
         },
     },
     created() {
+        console.log(this.$slots.default)
         const game = new Phaser.Game(this.gameOptions)
         this._game = game
     },

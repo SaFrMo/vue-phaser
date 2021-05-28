@@ -3,7 +3,10 @@ import Phaser from 'phaser'
 function SceneExtender(key, options = {}) {
     class ExtendedScene extends Phaser.Scene {
         constructor() {
-            super(key)
+            super({
+                key,
+                ...options
+            })
         }
 
         init(data) {

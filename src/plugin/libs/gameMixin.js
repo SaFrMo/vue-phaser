@@ -15,9 +15,13 @@ export default {
             let output = null
             let current = this
 
+            const targetKey = key.replace(/^\$/, '_')
+
+            output = current[targetKey]
+
             while (!output && current && current.$parent) {
                 current = current.$parent
-                output = current[key.replace(/^\$/, '_')]
+                output = current[targetKey]
             }
 
             return output
