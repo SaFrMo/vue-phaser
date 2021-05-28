@@ -13,6 +13,9 @@ export default {
     },
     created() {
         this.target = this.$scene.add.image(this.x, this.y, this.spriteKey)
+        if (this.$host) {
+            this.$host.add(this.target)
+        }
         this.refreshScale()
     },
     methods: {

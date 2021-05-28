@@ -1,13 +1,16 @@
 export default {
     computed: {
         $game() {
-            return this.findInAncestor('$game')
+            return this.findInAncestor('_game')
         },
         $games() {
-            return this.findInAncestor('$games')
+            return this.findInAncestor('_games')
         },
         $scene() {
-            return this.findInAncestor('$scene')
+            return this.findInAncestor('_scene')
+        },
+        $host() {
+            return this.findInAncestor('_host')
         }
     },
     methods: {
@@ -15,13 +18,13 @@ export default {
             let output = null
             let current = this
 
-            const targetKey = key.replace(/^\$/, '_')
+            // const targetKey = key.replace(/^\$/, '_')
 
-            output = current[targetKey]
+            output = current[key]
 
             while (!output && current && current.$parent) {
                 current = current.$parent
-                output = current[targetKey]
+                output = current[key]
             }
 
             return output

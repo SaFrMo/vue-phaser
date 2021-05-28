@@ -6,7 +6,19 @@ export default {
         scaleX: { type: Number, default: 1 },
         scaleY: { type: Number, default: 1 }
     },
+    mounted() {
+        this.refresh()
+    },
     methods: {
+        refresh() {
+            this.refreshPosition()
+            this.refreshScale()
+        },
+        refreshPosition() {
+            this.target.setX(this.x)
+            console.log(this.x)
+            this.target.setY(this.y)
+        },
         refreshScale() {
             this.target.setScale(this.scale === null ? this.scaleX : this.scale, this.scale === null ? this.scaleY : this.scale)
         }

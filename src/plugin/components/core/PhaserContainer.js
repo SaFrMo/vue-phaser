@@ -7,7 +7,8 @@ export default {
     name: 'phaser-container',
     mixins: [movable],
     created() {
-        this.target = this.$scene.add.container()
+        this.target = this._host = this.$scene.add.container()
+        console.log(this.target)
     },
 }
 
