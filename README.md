@@ -26,3 +26,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * Make sure that file extends `src/plugin/components.base.js` (see existing components for examples).
 * Import the file into `src/plugin/components/index.js`.
 * Add the imported component to that file's export.
+
+# License
+
+[NPL 5+](https://git.pixie.town/thufie/NPL/src/branch/master/NPL.txt)

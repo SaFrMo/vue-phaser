@@ -16,7 +16,6 @@ export default {
         },
         refreshPosition() {
             this.target.setX(this.x)
-            console.log(this.x)
             this.target.setY(this.y)
         },
         refreshScale() {

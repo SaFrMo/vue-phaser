@@ -8,7 +8,6 @@ export default {
     mixins: [movable],
     created() {
         this.target = this._host = this.$scene.add.container()
-        console.log(this.target)
     },
 }
 

@@ -5,7 +5,6 @@ export const waitFor = async function (host, target, opts = {}) {
     let latest = host
     for (let i = 0; i < split.length; i++) {
         try {
-            console.log(`looking for ${split[i]}`)
             latest = await waitForSingle(latest, split[i])
         } catch (err) {
             throw new Error(err)
@@ -30,7 +29,6 @@ export const waitForSingle = async function (host, target, opts = {}) {
     const checkerPromise = () =>
         new Promise(res => {
             checker = setInterval(() => {
-                console.log(host, target)
                 const el = lookFor()
                 if (el !== undefined) {
                     res(el)
