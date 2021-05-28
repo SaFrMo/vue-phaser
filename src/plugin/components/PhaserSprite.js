@@ -11,10 +11,6 @@ export default {
         }
     },
     async mounted() {
-        const image = await waitFor(this, '$scene.add.image')
-        console.log(image())
-        // if (image) {
-        //     image(400, 300, this.spriteKey)
-        // }
+        this.$scene.add.image(400, 300, this.spriteKey)
     }
 }

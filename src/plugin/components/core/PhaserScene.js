@@ -35,10 +35,12 @@ export default {
     },
     data() {
         return {
-            _scene: null
+            _scene: null,
+            created: false
         }
     },
     created() {
+        const vm = this
         const _init = this.init
         const _preload = this.preload
         const _create = this.create
@@ -60,6 +62,7 @@ export default {
             }
             create(data) {
                 if (_create) _create(this, data)
+                vm.created = true
             }
             // update(data){
             //     if (_update) _update(data)
@@ -72,6 +75,10 @@ export default {
         this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
     },
     render(h) {
-        return h('div', this.$slots.default)
+        if (this.created) {
+            return h('div', this.$slots.default)
+        } else {
+            return h('div')
+        }
     }
 }
