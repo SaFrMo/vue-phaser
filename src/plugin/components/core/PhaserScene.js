@@ -54,6 +54,7 @@ export default {
                         const matches = preload.match(/([^\/]*)\.[^\.]*$/)
                         if (matches && matches[1]) {
                             const key = matches[1]
+                            console.log(key, preload)
                             this.load.image(key, preload)
                         }
                     } else {
