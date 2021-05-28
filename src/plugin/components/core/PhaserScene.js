@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import SceneExtender from '../core/sceneExtender'
+import SceneExtender from '../../libs/sceneExtender'
 
 export default {
     name: 'phaser-scene',

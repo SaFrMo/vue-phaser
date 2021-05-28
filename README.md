@@ -1,4 +1,4 @@
-# vue-phaser-js
+# vue-phaser
 
 ## Project setup
 ```
@@ -17,3 +17,11 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Contributing
+
+### Adding a New Component
+
+* Add the file in `src/plugin/components`.
+* Import the file into `src/plugin/components/index.js`.
+* Add the imported component to that file's export.

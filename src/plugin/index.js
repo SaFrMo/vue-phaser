@@ -1,5 +1,5 @@
 import components from './components'
-import gameMixin from './core/gameMixin'
+import gameMixin from './libs/gameMixin'
 
 const output = (Vue, opts = {}) => {
     // register mixins
@@ -7,7 +7,6 @@ const output = (Vue, opts = {}) => {
 
     // register components
     components.forEach((component) => {
-        console.log(component)
         Vue.component(component.name, component)
     })
 }

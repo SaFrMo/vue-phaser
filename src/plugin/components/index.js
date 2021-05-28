@@ -1,5 +1,5 @@
-import PhaserGame from './PhaserGame'
-import PhaserScene from './PhaserScene'
+import PhaserGame from './core/PhaserGame'
+import PhaserScene from './core/PhaserScene'
 
 export default [
     PhaserGame,
