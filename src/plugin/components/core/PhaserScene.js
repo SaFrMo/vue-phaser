@@ -47,33 +47,29 @@ export default {
 
         class MyScene extends Phaser.Scene {
             constructor() {
-                super({ ...props, key: sceneKey })
-
-                if (_init) {
-                    this.init = _init
-                }
-                if (_preload) {
-                    this.preload = _preload
-                }
-                if (_create) {
-                    this.create = _create
-                }
+                super({
+                    key: sceneKey,
+                    ...props
+                })
             }
+            init(data) {
+                if (_init) _init(this, data)
+            }
+            preload(data) {
+                if (_preload) _preload(this, data)
+            }
+            create(data) {
+                if (_create) _create(this, data)
+            }
+            // update(data){
+            //     if (_update) _update(data)
+            // }
         }
 
-        this._scene = new MyScene()
-        this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
-        // const _factory = new Phaser.GameObjects.GameObjectFactory(this._scene)
-        // this._scene.add = _factory
 
-        // this._scene = SceneExtender(this.sceneKey, {
-        //     init: this.init,
-        //     preload: this.preload,
-        //     create: this.create,
-        //     active: this.active
-        // })
-        // this.$game.scene.add(this.sceneKey, this._scene)
-        // this.$game.scene.start(this.sceneKey)
+        this._scene = new MyScene()
+
+        this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
     },
     render(h) {
         return h('div', this.$slots.default)

@@ -22,18 +22,27 @@ export default {
                 type: Phaser.AUTO,
                 width: 800,
                 height: 600,
-                physics: {
-                    default: 'arcade',
-                    arcade: {
-                        gravity: { y: 200 },
-                    },
-                },
+                // scene: {
+                //     preload: this.preload,
+                //     create: this.create,
+                //     update: this.update
+                // },
                 ...this.options,
             }
         },
     },
+    methods: {
+        preload: () => {
+        },
+        create: () => {
+            console.log('create', this)
+
+        },
+        update() {
+
+        }
+    },
     created() {
-        console.log(this.$slots.default)
         const game = new Phaser.Game(this.gameOptions)
         this._game = game
     },

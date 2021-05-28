@@ -10,7 +10,7 @@ export default {
             required: true
         }
     },
-    async created() {
+    async mounted() {
         const image = await waitFor(this, '$scene.add.image')
         console.log(image())
         // if (image) {
