@@ -7,7 +7,7 @@ export default {
     name: 'phaser-text',
     mixins: [movable, scalable],
     props: {
-        phaserStyle: {
+        textStyle: {
             type: Object,
             default: () => ({})
         },
@@ -16,7 +16,7 @@ export default {
         }
     },
     created() {
-        this.target = this.$scene.add.text(this.x, this.y, this.text.toString())
+        this.target = this.$scene.add.text(this.x, this.y, this.text.toString(), this.textStyle)
         if (this.$host) {
             this.$host.add(this.target)
         }
