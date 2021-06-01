@@ -18,6 +18,11 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## To Document
+
+- [ ] All components in `/src/plugin/components/core`
+- [ ] `options` prop of `phaser-shape` passes options directly to function - x, y, scale are ignored, since the component uses `movable` and `scalable` mixins
+
 ## Contributing
 
 ### Adding a New Component
