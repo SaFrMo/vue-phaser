@@ -1,10 +1,11 @@
 import base from '../common/base'
 import movable from '../../mixins/movable'
+import scalable from '../../mixins/scalable'
 
 export default {
     ...base,
     name: 'phaser-sprite',
-    mixins: [movable],
+    mixins: [movable, scalable],
     props: {
         spriteKey: {
             type: String,
@@ -18,10 +19,10 @@ export default {
         }
         this.refreshScale()
     },
-    methods: {
-
-    },
-
-
+    beforeDestroy() {
+        if (this.target && this.target.destroy) {
+            this.target.destroy()
+        }
+    }
 }
 
