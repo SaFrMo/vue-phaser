@@ -20,14 +20,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## TODO
 
-* Create PhaserGroup component in Core
-* Destroy children prop on PhaserContainer
+- [ ] Create PhaserGroup component in Core
+- [ ] Destroy children prop on PhaserContainer
+- [ ] Collide events mimicking Overlap events in physics mixin
 
 ## To Document
 
 - [ ] All components in `/src/plugin/components/core`
 - [ ] `options` prop of `phaser-shape` passes options directly to function - x, y, scale are ignored, since the component uses `movable` and `scalable` mixins
 - [ ] Destroy children/remove from scene props in PhaserPhysicsGroup
+- [ ] gameMixin registerd globally
 
 ### Dev To Document
 

@@ -1,11 +1,12 @@
 import base from '../common/base'
 import movable from '../../mixins/movable'
 import scalable from '../../mixins/scalable'
+import physics from '../../mixins/physics'
 
 export default {
     ...base,
     name: 'phaser-sprite',
-    mixins: [movable, scalable],
+    mixins: [movable, scalable, physics],
     props: {
         spriteKey: {
             type: String,

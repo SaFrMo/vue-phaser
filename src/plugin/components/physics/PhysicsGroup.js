@@ -1,8 +1,10 @@
 import base from '../common/base'
+import physics from '../../mixins/physics'
 
 export default {
     ...base,
     name: 'phaser-physics-group',
+    mixins: [physics],
     props: {
         options: {
             type: Object,

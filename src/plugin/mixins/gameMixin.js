@@ -6,12 +6,15 @@ export default {
         $games() {
             return this.findInAncestor('_games')
         },
+        $host() {
+            return this.findInAncestor('_host')
+        },
+        $physicsDictionary() {
+            return this.findInAncestor('_physicsDictionary')
+        },
         $scene() {
             return this.findInAncestor('_scene')
         },
-        $host() {
-            return this.findInAncestor('_host')
-        }
     },
     methods: {
         findInAncestor(key) {

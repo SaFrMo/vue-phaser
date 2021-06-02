@@ -29,6 +29,11 @@ export default {
     created() {
         const game = new Phaser.Game(this.gameOptions)
         this._game = game
+
+        // physics metadata
+        this._physicsDictionary = {
+            OVERLAP_CALLBACK_QUEUE: {}
+        }
     },
     beforeDestroy() {
         if (this.$game) {
