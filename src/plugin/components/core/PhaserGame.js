@@ -35,6 +35,9 @@ export default {
             OVERLAP_CALLBACK_QUEUE: {}
         }
     },
+    mounted() {
+        this.$el.append(this.$game.canvas)
+    },
     beforeDestroy() {
         if (this.$game) {
             this.$game.destroy(true)
