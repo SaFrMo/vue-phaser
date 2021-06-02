@@ -11,9 +11,15 @@ export default {
             type: String,
             required: true
         },
+        usePhysics: {
+            type: Boolean,
+            default: true
+        }
     },
     created() {
-        this.target = this.$scene.add.image(this.x, this.y, this.spriteKey)
+        const factorySource = this.usePhysics ? (this.$scene.physics || this.$scene) : this.$scene
+
+        this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
         if (this.$host) {
             this.$host.add(this.target)
         }

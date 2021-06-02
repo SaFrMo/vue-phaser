@@ -18,10 +18,21 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## TODO
+
+* Create PhaserGroup component in Core
+* Destroy children prop on PhaserContainer
+
 ## To Document
 
 - [ ] All components in `/src/plugin/components/core`
 - [ ] `options` prop of `phaser-shape` passes options directly to function - x, y, scale are ignored, since the component uses `movable` and `scalable` mixins
+- [ ] Destroy children/remove from scene props in PhaserPhysicsGroup
+
+### Dev To Document
+
+- [ ] `_` and `$` lookup conventions
+- [ ] `$scene`, `$game`, `$host`, `target` conventions
 
 ## Contributing
 
