@@ -1,10 +1,12 @@
 import base from '../common/base'
+import customProps from '../../mixins/customProps'
+import gameObject from '../../mixins/gameObject'
 import physics from '../../mixins/physics'
 
 export default {
     ...base,
     name: 'phaser-physics-group',
-    mixins: [physics],
+    mixins: [customProps, gameObject, physics],
     props: {
         options: {
             type: Object,

@@ -1,11 +1,13 @@
 import base from '../common/base'
+import customProps from '../../mixins/customProps'
+import gameObject from '../../mixins/gameObject'
 import movable from '../../mixins/movable'
 import scalable from '../../mixins/scalable'
 
 export default {
     ...base,
     name: 'phaser-text',
-    mixins: [movable, scalable],
+    mixins: [customProps, gameObject, movable, scalable],
     props: {
         textStyle: {
             type: Object,
@@ -20,7 +22,6 @@ export default {
         if (this.$host) {
             this.$host.add(this.target)
         }
-        this.refreshScale()
     },
     watch: {
         text(newVal) {

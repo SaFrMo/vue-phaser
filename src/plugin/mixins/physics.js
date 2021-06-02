@@ -44,20 +44,22 @@ export default {
                 const { physics } = this.target.scene
 
                 const args = {
-                    object1: this.target,
-                    object2: otherComponent.target,
+                    overlap1: this.target,
+                    overlap2: otherComponent.target,
                     key: otherObjectKey || this.finalPhysicsKey
                 }
                 physics.add.overlap(this.target, otherComponent.target,
                     // overlap event
-                    () => {
-                        this.$emit('overlap', args)
-                        otherComponent.$emit('overlap', args)
+                    (object1, object2) => {
+                        const callbackArgs = { object1, object2, ...args }
+                        this.$emit('overlap', callbackArgs)
+                        otherComponent.$emit('overlap', callbackArgs)
                     },
                     // process event
-                    () => {
-                        return (otherComponent.processCallback ? otherComponent.processCallback(args) : true)
-                            && (this.processCallback ? this.processCallback(args) : true)
+                    (object1, object2) => {
+                        const processArgs = { object1, object2, ...args }
+                        return (otherComponent.processCallback ? otherComponent.processCallback(processArgs) : true)
+                            && (this.processCallback ? this.processCallback(processArgs) : true)
                     }
                 )
 
