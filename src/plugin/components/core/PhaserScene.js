@@ -62,7 +62,7 @@ export default {
                     } else {
                         // full options - accepts:
                         // { type?, key, url, options? }
-                        this.load[preload.type || 'image'](preload.key, preload.url, preload.options || {})
+                        this.load[preload.type || 'image'](preload.key, preload.url, ...(preload.options || []))
                     }
                 })
             }

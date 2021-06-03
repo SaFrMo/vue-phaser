@@ -72,7 +72,7 @@ Here's a very basic vue-phaser setup:
   <phaser-game>
     <!-- phaser-scene wraps a single scene -->
     <!-- scene-key is required -->
-    <!-- preload-queue is a list of files to load -->
+    <!-- preload-queue is a list of files to load (example assumes you have a tilemap.png file available) -->
     <!-- auto-start starts the game on this scene -->
     <phaser-scene
       scene-key="game"
@@ -96,3 +96,47 @@ Wrapper for an entire Phaser game.
 | --------- | ---------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `options` | Object: [Phaser.GameConfig](https://photonstorm.github.io/phaser3-docs/Phaser.Types.Core.html#.GameConfig) | `{}`    | Game options to pass directly to the [Phaser.Game](https://photonstorm.github.io/phaser3-docs/Phaser.Game.html) constructor. |
 
+### `phaser-scene`
+
+Wrapper for a single Phaser scene.
+
+| Prop         | Type     | Default | Notes                                                                                                                               |
+| ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `sceneKey`   | String   |         | **Required**                                                                                                                        |
+| init         | Function |         | Scene init function                                                                                                                 |
+| preload      | Function |         | Scene preload function                                                                                                              |
+| create       | Function |         | Scene create function                                                                                                               |
+| update       | Function |         | Scene update function                                                                                                               |
+| autoStart    | Boolean  | `false` | Whether or not to start on this Scene.                                                                                              |
+| sceneData    | Object   | `{}`    | Optional data to pass to scene. See [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Scenes.SceneManager.html#add__anchor). |
+| preloadQueue | Array    | `[]`    | Array of items to preload. See below.                                                                                               |
+
+#### `preloadQueue`
+
+You can quickly load sprites with strings: 
+  `['example1.png', '/another/example2.png']`
+  
+In this case, the filename minus the path and extension will be the sprite key (`example1` and `example2` above).
+
+You can also pass objects to the queue (or mix and match strings and objects):
+
+```
+[{ url: '/more/examples/example3.png', key: 'my-key' }]
+```
+  
+`url` and `key` properties are required, while `type` and `options` are allowed:
+
+  ```
+  [{ 
+    url: '/my/example4.png', 
+    key: 'my-key-2', 
+    type: 'spritesheet', 
+    options: [ /* ... */ ] 
+  }]
+  ```                      
+  
+  `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor), while `options` is an array of options that will be spread and passed to the load method.)                                                                                                         |
+
+  ### `phaser-sprite`
+
+  TODO
