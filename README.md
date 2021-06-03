@@ -135,7 +135,7 @@ You can also pass objects to the queue (or mix and match strings and objects):
         startFrame: 0,
         endFrame: 8
     }] 
-  ]
+  }]
   ```                      
   
   `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor)), while `options` is an array of options that will be spread and passed to the load method.
