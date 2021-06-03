@@ -100,16 +100,16 @@ Wrapper for an entire Phaser game.
 
 Wrapper for a single Phaser scene.
 
-| Prop         | Type     | Default | Notes                                                                                                                               |
-| ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `sceneKey`   | String   |         | **Required**                                                                                                                        |
-| init         | Function |         | Scene init function                                                                                                                 |
-| preload      | Function |         | Scene preload function                                                                                                              |
-| create       | Function |         | Scene create function                                                                                                               |
-| update       | Function |         | Scene update function                                                                                                               |
-| autoStart    | Boolean  | `false` | Whether or not to start on this Scene.                                                                                              |
-| sceneData    | Object   | `{}`    | Optional data to pass to scene. See [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Scenes.SceneManager.html#add__anchor). |
-| preloadQueue | Array    | `[]`    | Array of items to preload. See below.                                                                                               |
+| Prop           | Type     | Default | Notes                                                                                                                               |
+| -------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `sceneKey`     | String   |         | **Required**                                                                                                                        |
+| `init`         | Function |         | Scene init function                                                                                                                 |
+| `preload`      | Function |         | Scene preload function                                                                                                              |
+| `create`       | Function |         | Scene create function                                                                                                               |
+| `update`       | Function |         | Scene update function                                                                                                               |
+| `autoStart`    | Boolean  | `false` | Whether or not to start on this Scene.                                                                                              |
+| `sceneData`    | Object   | `{}`    | Optional data to pass to scene. See [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Scenes.SceneManager.html#add__anchor). |
+| `preloadQueue` | Array    | `[]`    | Array of items to preload. See below.                                                                                               |
 
 You can quickly load sprites in the `preloadQueue` with strings: 
   `['example1.png', '/another/example2.png']`
