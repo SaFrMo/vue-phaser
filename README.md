@@ -129,7 +129,12 @@ You can also pass objects to the queue (or mix and match strings and objects):
     url: '/my/example4.png', 
     key: 'my-key-2', 
     type: 'spritesheet', 
-    options: [ /* ... */ ] 
+    options: [ {
+        frameWidth: 32,
+        frameHeight: 38,
+        startFrame: 0,
+        endFrame: 8
+    ] 
   }]
   ```                      
   
