@@ -5,7 +5,7 @@ export const waitFor = async function (host, target, opts = {}) {
     let latest = host
     for (let i = 0; i < split.length; i++) {
         try {
-            latest = await waitForSingle(latest, split[i])
+            latest = await waitForSingle(latest, split[i], opts)
         } catch (err) {
             throw new Error(err)
         }

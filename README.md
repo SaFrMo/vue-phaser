@@ -49,3 +49,50 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # License
 
 [NPL 5+](https://git.pixie.town/thufie/NPL/src/branch/master/NPL.txt)
+
+# Docs
+
+vue-phaser is a Vue plugin for [Phaser](https://phaser.io/). You can use vue-phaser to quickly build browser games.
+
+## Installation
+
+1. `npm install vue-phaser`
+2. Register the plugin:
+
+    import VuePhaser from 'vue-phaser'
+    Vue.use(VuePhaser)
+
+## Setup
+
+Here's a very basic vue-phaser setup:
+
+```html
+<template>
+  <!-- phaser-game wraps the game -->
+  <phaser-game>
+    <!-- phaser-scene wraps a single scene -->
+    <!-- scene-key is required -->
+    <!-- preload-queue is a list of files to load -->
+    <!-- auto-start starts the game on this scene -->
+    <phaser-scene
+      scene-key="game"
+      :preload-queue="['tilemap.png']"
+      auto-start
+    >
+      <!-- sprite-key is required -->
+      <phaser-sprite sprite-key="tilemap" x="400" y="300" />
+    </phaser-scene>
+  </phaser-game>
+</template>
+```
+
+## Core Components 
+
+### `phaser-game`
+
+Wrapper for an entire Phaser game.
+
+| Prop      | Type                                                                                                       | Default | Notes                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `options` | Object: [Phaser.GameConfig](https://photonstorm.github.io/phaser3-docs/Phaser.Types.Core.html#.GameConfig) | `{}`    | Game options to pass directly to the [Phaser.Game](https://photonstorm.github.io/phaser3-docs/Phaser.Game.html) constructor. |
+

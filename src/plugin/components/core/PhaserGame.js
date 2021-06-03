@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import base from '../common/base'
+import { waitFor } from '../../libs/utils'
 
 export default {
     ...base,
@@ -22,6 +23,7 @@ export default {
                 type: Phaser.AUTO,
                 width: 800,
                 height: 600,
+                parent: null,
                 ...this.options,
             }
         },
@@ -35,8 +37,15 @@ export default {
             OVERLAP_CALLBACK_QUEUE: {}
         }
     },
-    mounted() {
-        this.$el.append(this.$game.canvas)
+    async mounted() {
+        if (!this.gameOptions.parent) {
+            const canvas = await waitFor(this.$game, 'canvas')
+            if (canvas) {
+                this.$el.append(canvas)
+            } else {
+                console.error('no canvas found')
+            }
+        }
     },
     beforeDestroy() {
         if (this.$game) {
