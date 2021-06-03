@@ -129,13 +129,13 @@ You can also pass objects to the queue (or mix and match strings and objects):
     url: '/my/example4.png', 
     key: 'my-key-2', 
     type: 'spritesheet', 
-    options: [ {
+    options: [{
         frameWidth: 32,
         frameHeight: 38,
         startFrame: 0,
         endFrame: 8
-    ] 
-  }]
+    }] 
+  ]
   ```                      
   
   `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor)), while `options` is an array of options that will be spread and passed to the load method.
