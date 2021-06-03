@@ -23,6 +23,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] Create PhaserGroup component in Core
 - [ ] Destroy children prop on PhaserContainer
 - [ ] Collide events mimicking Overlap events in physics mixin
+- [ ] Move `mixins/gameMixin` to more universal folder
+- [ ] Document `xProps` computed property convention on `mixins/*` files (example usage: PhaserParticleEmitter)
 
 ## To Document
 

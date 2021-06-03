@@ -9,6 +9,9 @@ export default {
         $host() {
             return this.findInAncestor('_host')
         },
+        $particles() {
+            return this.findInAncestor('_particles')
+        },
         $physicsDictionary() {
             return this.findInAncestor('_physicsDictionary')
         },

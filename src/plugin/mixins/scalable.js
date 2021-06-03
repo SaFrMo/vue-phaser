@@ -9,6 +9,17 @@ export default {
     mounted() {
         this.refreshScale()
     },
+    computed: {
+        scalableProps() {
+            return {
+                scale: this.scale,
+                scaleX: this.scaleX,
+                scaleY: this.scaleY,
+                displayWidth: this.displayWidth,
+                displayHeight: this.displayHeight,
+            }
+        }
+    },
     methods: {
         refreshScale() {
             if (this.displayWidth === null && this.displayHeight === null) {

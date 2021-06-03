@@ -7,6 +7,15 @@ export default {
     mounted() {
         this.refreshPosition()
     },
+    computed: {
+        movableProps() {
+            return {
+                x: this.x,
+                y: this.y,
+                z: this.z
+            }
+        }
+    },
     methods: {
         refreshPosition() {
             this.target.setX(this.x)

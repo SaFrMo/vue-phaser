@@ -9,5 +9,12 @@ export default {
         if (this.name !== null) {
             this.target.name = this.name
         }
+    },
+    computed: {
+        gameObjectProps() {
+            return {
+                name: this.name
+            }
+        }
     }
 }
