@@ -51,6 +51,9 @@ export default {
             preload(data) {
                 if (_preload) _preload(this, data)
 
+                this.load.on('progress', evt => vm.$emit('load-progress', evt))
+                this.load.on('complete', evt => vm.$emit('load-complete', evt))
+
                 preloadQueue.forEach(preload => {
                     if (typeof preload === 'string') {
                         // handle a file url - `/example/test.jpg` loads that URL as sprite with key `test
@@ -62,7 +65,8 @@ export default {
                     } else {
                         // full options - accepts:
                         // { type?, key, url, options? }
-                        this.load[preload.type || 'image'](preload.key, preload.url, ...(preload.options || []))
+                        const defaultArgs = [preload.key, preload.url, ...(preload.options || [])]
+                        this.load[preload.type || 'image'](...(preload.args || defaultArgs))
                     }
                 })
             }

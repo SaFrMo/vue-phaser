@@ -111,6 +111,11 @@ Wrapper for a single Phaser scene.
 | `sceneData`    | Object   | `{}`    | Optional data to pass to scene. See [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Scenes.SceneManager.html#add__anchor). |
 | `preloadQueue` | Array    | `[]`    | Array of items to preload. See below.                                                                                               |
 
+| Event           | Arguments                               | Notes                           |
+| --------------- | --------------------------------------- | ------------------------------- |
+| `load-progress` | Number representing percentage complete | `preload()` load progress       |
+| `load-complete` | Loader                                  | All items in `preload()` loaded |
+
 You can quickly load sprites in the `preloadQueue` with strings: 
   `['example1.png', '/another/example2.png']`
   
@@ -124,21 +129,32 @@ You can also pass objects to the queue (or mix and match strings and objects):
   
 `url` and `key` properties are required, while `type` and `options` are allowed:
 
-  ```
-  [{ 
-    url: '/my/example4.png', 
-    key: 'my-key-2', 
-    type: 'spritesheet', 
-    options: [{
-        frameWidth: 32,
-        frameHeight: 38,
-        startFrame: 0,
-        endFrame: 8
-    }] 
-  }]
-  ```                      
-  
-  `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor)), while `options` is an array of options that will be spread and passed to the load method.
+```
+[{ 
+  url: '/my/example4.png', 
+  key: 'my-key-2', 
+  type: 'spritesheet', 
+  options: [{
+      frameWidth: 32,
+      frameHeight: 38,
+      startFrame: 0,
+      endFrame: 8
+  }] 
+}]
+```                      
+
+`type` is the method on `load` to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor)), while `options` is an array of options that will be spread and passed to the load method.
+
+You can also pass a `type` string and `args` array for completely custom load method usage:
+
+```
+[{
+  type: 'on',
+  args: ['progress', console.log]
+}]
+```
+
+`type` is still the method on `load` to run, while the `args` array is spread into the `type` method as its arguments. This is the equivalent to calling `this.load.on('progress', console.log)` in your scene's `preload` function.
 
   ### `phaser-sprite`
 
