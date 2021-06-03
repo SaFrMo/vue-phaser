@@ -111,9 +111,7 @@ Wrapper for a single Phaser scene.
 | sceneData    | Object   | `{}`    | Optional data to pass to scene. See [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Scenes.SceneManager.html#add__anchor). |
 | preloadQueue | Array    | `[]`    | Array of items to preload. See below.                                                                                               |
 
-#### `preloadQueue`
-
-You can quickly load sprites with strings: 
+You can quickly load sprites in the `preloadQueue` with strings: 
   `['example1.png', '/another/example2.png']`
   
 In this case, the filename minus the path and extension will be the sprite key (`example1` and `example2` above).
@@ -135,7 +133,7 @@ You can also pass objects to the queue (or mix and match strings and objects):
   }]
   ```                      
   
-  `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor), while `options` is an array of options that will be spread and passed to the load method.)                                                                                                         |
+  `type` is the kind of loader to run (see [docs](https://photonstorm.github.io/phaser3-docs/Phaser.Loader.LoaderPlugin.html#toc24__anchor)), while `options` is an array of options that will be spread and passed to the load method.
 
   ### `phaser-sprite`
 
