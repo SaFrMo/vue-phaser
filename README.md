@@ -1,5 +1,7 @@
 # vue-phaser
 
+⚠️ **This project is in active development! Expect breaking changes!**
+
 ## Project setup
 ```
 npm install
