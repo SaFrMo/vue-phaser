@@ -27,6 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] Collide events mimicking Overlap events in physics mixin
 - [ ] Move `mixins/gameMixin` to more universal folder
 - [ ] Document `xProps` computed property convention on `mixins/*` files (example usage: PhaserParticleEmitter)
+- [ ] Change `z` in mixins/movable to `depth` (or switch to new depth mixin entirely?)
 
 ## To Document
 
