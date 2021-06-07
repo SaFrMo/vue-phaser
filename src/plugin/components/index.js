@@ -13,6 +13,9 @@ import PhaserParticleEmitter from './particles/PhaserParticleEmitter'
 // physics
 import PhysicsGroup from './physics/PhysicsGroup'
 
+// tilemap
+import PhaserTilemap from './tilemap/PhaserTilemap'
+
 export default [
     // core
     PhaserContainer,
@@ -27,5 +30,8 @@ export default [
     PhaserParticleEmitter,
 
     // physics
-    PhysicsGroup
+    PhysicsGroup,
+
+    // tilemap
+    PhaserTilemap,
 ]

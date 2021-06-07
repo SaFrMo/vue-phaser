@@ -17,12 +17,21 @@ export default {
         usePhysics: {
             type: Boolean,
             default: true
+        },
+        frame: {
+            type: [String, Number],
+            default: null
         }
     },
     created() {
-        const factorySource = this.usePhysics ? (this.$scene.physics || this.$scene) : this.$scene
+        const factorySource = this.usePhysics && this.$scene.physics ? this.$scene.physics : this.$scene
 
-        this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
+        const args = [this.x, this.y, this.spriteKey]
+        if (this.frame !== null) {
+            args.push(this.frame)
+        }
+
+        this.target = factorySource.add.sprite(...args)
         if (this.$host) {
             this.$host.add(this.target)
         }
