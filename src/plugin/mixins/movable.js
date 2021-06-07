@@ -20,7 +20,7 @@ export default {
         refreshPosition() {
             this.target.setX(this.x)
             this.target.setY(this.y)
-            this.target.setZ(this.z)
+            this.target.setDepth(this.z)
         },
     },
     watch: {
@@ -31,7 +31,7 @@ export default {
             this.target.setY(newVal)
         },
         z(newVal) {
-            this.target.setZ(newVal)
+            this.target.setDepth(newVal)
         },
 
     },
