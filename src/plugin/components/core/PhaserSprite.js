@@ -20,7 +20,7 @@ export default {
         }
     },
     created() {
-        const factorySource = this.usePhysics ? (this.$scene.physics || this.$scene) : this.$scene
+        const factorySource = this.usePhysics && this.$scene.physics ? this.$scene.physics : this.$scene
 
         this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
         if (this.$host) {

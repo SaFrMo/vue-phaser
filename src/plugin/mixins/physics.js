@@ -10,6 +10,10 @@ export default {
         processCallback: {
             type: Function,
             default: null
+        },
+        bodyScale: {
+            type: [String, Number, Object],
+            default: 1
         }
     },
     data() {
@@ -30,6 +34,8 @@ export default {
 
         // one final check to see if anything has been waiting for us
         this.updateOverlapQueue()
+
+        this.refreshBodySize()
     },
     methods: {
         updateOverlapQueue(otherObjectKey = null) {
@@ -69,6 +75,21 @@ export default {
                 // knowing that it'll eventually spawn
                 this.$physicsDictionary.OVERLAP_CALLBACK_QUEUE[otherObjectKey] = this
             }
+        },
+        refreshBodySize() {
+            if (!this.target.body) {
+                return
+            }
+
+            // set up body size
+            const width = this.target.body.width * (this.bodyScale.x ?? this.bodyScale.width ?? this.bodyScale)
+            const height = this.target.body.height * (this.bodyScale.y ?? this.bodyScale.height ?? this.bodyScale)
+            this.target.body.setSize(width, height)
+        }
+    },
+    watch: {
+        bodyScale() {
+            this.refreshBodySize()
         }
     }
 }
