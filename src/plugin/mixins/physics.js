@@ -82,8 +82,8 @@ export default {
             }
 
             // set up body size
-            const width = this.target.body.width * (this.bodyScale.x ?? this.bodyScale.width ?? this.bodyScale)
-            const height = this.target.body.height * (this.bodyScale.y ?? this.bodyScale.height ?? this.bodyScale)
+            const width = this.target.body.width * (this.bodyScale.x || this.bodyScale.width || this.bodyScale)
+            const height = this.target.body.height * (this.bodyScale.y || this.bodyScale.height || this.bodyScale)
             this.target.body.setSize(width, height)
         }
     },
