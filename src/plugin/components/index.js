@@ -5,6 +5,7 @@ import PhaserScene from './core/PhaserScene'
 import PhaserShape from './core/PhaserShape'
 import PhaserSprite from './core/PhaserSprite'
 import PhaserText from './core/PhaserText'
+import PhaserVueWrap from './core/PhaserVueWrap'
 
 // particles
 import PhaserParticles from './particles/PhaserParticles'
@@ -21,6 +22,7 @@ export default [
     PhaserShape,
     PhaserSprite,
     PhaserText,
+    PhaserVueWrap,
 
     // particles
     PhaserParticles,

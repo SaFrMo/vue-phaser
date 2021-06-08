@@ -18,20 +18,24 @@ export default {
     },
     methods: {
         refreshPosition() {
-            this.target.setX(this.x)
-            this.target.setY(this.y)
-            this.target.setDepth(this.z)
+            this.target.setX(parseFloat(this.x))
+            this.target.setY(parseFloat(this.y))
+            this.target.setDepth(parseFloat(this.z))
+
+            if (this.spriteKey && this.spriteKey === 'billboard1') {
+                console.log(this.target)
+            }
         },
     },
     watch: {
         x(newVal) {
-            this.target.setX(newVal)
+            this.target.setX(parseFloat(newVal))
         },
         y(newVal) {
-            this.target.setY(newVal)
+            this.target.setY(parseFloat(newVal))
         },
         z(newVal) {
-            this.target.setDepth(newVal)
+            this.target.setDepth(parseFloat(newVal))
         },
 
     },
