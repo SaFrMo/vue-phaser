@@ -21,10 +21,6 @@ export default {
             this.target.setX(parseFloat(this.x))
             this.target.setY(parseFloat(this.y))
             this.target.setDepth(parseFloat(this.z))
-
-            if (this.spriteKey && this.spriteKey === 'billboard1') {
-                console.log(this.target)
-            }
         },
     },
     watch: {
