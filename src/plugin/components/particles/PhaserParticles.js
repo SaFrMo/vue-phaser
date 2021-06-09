@@ -1,7 +1,5 @@
 import base from '../../common/base'
-import gameObject from '../../mixins/gameObject'
-import movable from '../../mixins/movable'
-import scalable from '../../mixins/scalable'
+import { gameObject, movable, scalable } from '../../mixins'
 
 export default {
     ...base,

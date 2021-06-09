@@ -1,4 +1,3 @@
-// import SceneExtender from '../../libs/sceneExtender'
 import base from '../../common/base'
 import Phaser from 'phaser'
 

@@ -1,7 +1,5 @@
 import base from '../../common/base'
-import customProps from '../../mixins/customProps'
-import gameObject from '../../mixins/gameObject'
-import physics from '../../mixins/physics'
+import { customProps, gameObject, physics } from '../../mixins'
 
 export default {
     ...base,
