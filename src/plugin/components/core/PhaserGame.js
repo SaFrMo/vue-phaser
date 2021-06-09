@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import base from '../common/base'
+import base from '../../common/base'
 import { waitFor } from '../../libs/utils'
 
 export default {

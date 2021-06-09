@@ -7,7 +7,6 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@babel/preset-env": "7.14.4",
     "core-js": "^3.6.5",
     "phaser": "3.55.2",
     "vue": "^2.6.11"

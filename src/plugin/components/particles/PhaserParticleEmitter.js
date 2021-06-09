@@ -1,4 +1,4 @@
-import base from '../common/base'
+import base from '../../common/base'
 
 export default {
     ...base,

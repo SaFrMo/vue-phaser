@@ -1,7 +1,13 @@
 <template>
     <div id="app">
         <phaser-game>
-            <phaser-scene scene-key="loading" :init="init" :create="create" />
+            <phaser-scene
+                scene-key="loading"
+                auto-start
+                :preload-queue="preloadQueue"
+            >
+                <phaser-sprite sprite-key="space" x="400" y="300" />
+            </phaser-scene>
         </phaser-game>
     </div>
 </template>
@@ -13,13 +19,10 @@ Vue.use(VuePhaserPlugin)
 
 export default Vue.extend({
     name: 'App',
-    methods: {
-        init(scene) {
-            scene.load.image('space', '/space.png')
-        },
-        create(scene) {
-            scene.add.image(400, 300, 'space')
-        },
+    data() {
+        return {
+            preloadQueue: ['space.png'],
+        }
     },
 })
 </script>

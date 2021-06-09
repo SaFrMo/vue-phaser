@@ -1,4 +1,4 @@
-import base from '../common/base'
+import base from '../../common/base'
 import gameObject from '../../mixins/gameObject'
 import movable from '../../mixins/movable'
 import scalable from '../../mixins/scalable'
