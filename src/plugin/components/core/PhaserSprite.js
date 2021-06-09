@@ -27,6 +27,11 @@ export default {
             this.$host.add(this.target)
         }
     },
+    watch: {
+        spriteKey(newVal) {
+            this.target.setTexture(newVal)
+        }
+    },
     beforeDestroy() {
         if (this.target && this.target.destroy) {
             this.target.destroy()
