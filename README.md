@@ -9,8 +9,10 @@ vue-phaser is a Vue plugin for [Phaser](https://phaser.io/). You can use vue-pha
 1. `npm install vue-phaser`
 2. Register the plugin:
 
-    import VuePhaser from 'vue-phaser'
-    Vue.use(VuePhaser)
+```
+import VuePhaser from 'vue-phaser'
+Vue.use(VuePhaser)
+```
 
 ## Setup
 
