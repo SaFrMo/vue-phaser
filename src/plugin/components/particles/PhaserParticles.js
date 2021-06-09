@@ -1,5 +1,5 @@
 import base from '../../common/base'
-import { gameObject, movable, scalable } from '../../mixins'
+import { gameObject, depth, movable, scalable } from '../../mixins'
 
 export default {
     ...base,
@@ -10,7 +10,7 @@ export default {
             required: true
         }
     },
-    mixins: [gameObject, movable, scalable],
+    mixins: [gameObject, depth, movable, scalable],
     created() {
         this.target = this._particles = this.$scene.add.particles(this.particleKey)
         if (this.$host) {

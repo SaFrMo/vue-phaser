@@ -1,10 +1,10 @@
 import base from '../../common/base'
-import { customProps, gameObject, movable, physics, scalable, } from '../../mixins/customProps'
+import { customProps, depth, gameObject, movable, physics, scalable, } from '../../mixins'
 
 export default {
     ...base,
     name: 'phaser-sprite',
-    mixins: [customProps, gameObject, movable, physics, scalable],
+    mixins: [customProps, depth, gameObject, movable, physics, scalable],
     props: {
         spriteKey: {
             type: String,

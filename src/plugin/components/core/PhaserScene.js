@@ -6,10 +6,6 @@ export default {
     name: 'phaser-scene',
     props: {
         sceneKey: { type: String, required: true },
-        // options: {
-        //     type: Object as PropType<Phaser.Types.Scenes.SettingsConfig>,
-        //     default: () => ({})
-        // }
         init: { type: Function, default: null },
         preload: { type: Function, default: null },
         create: { type: Function, default: null },
@@ -78,6 +74,7 @@ export default {
                 if (_update) _update(this, time, delta)
             }
         }
+        // end `this` referring to the class
 
         this._scene = new MyScene()
 
