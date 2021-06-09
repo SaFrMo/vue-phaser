@@ -1,6 +1,25 @@
 # vue-phaser
 
-⚠️ **This project is in active development! Expect breaking changes!**⚠️ 
+<details>
+<summary>Table of Contents</summary>
+
+- [vue-phaser](#vue-phaser)
+  - [Installation](#installation)
+  - [Setup](#setup)
+  - [Core Components](#core-components)
+    - [`phaser-game`](#phaser-game)
+    - [`phaser-scene`](#phaser-scene)
+    - [`phaser-sprite`](#phaser-sprite)
+- [License](#license)
+- [Contributing](#contributing)
+  - [Project setup](#project-setup)
+    - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+    - [Compiles and minifies for production](#compiles-and-minifies-for-production)
+    - [Customize configuration](#customize-configuration)
+  - [Adding a New Component](#adding-a-new-component)
+</details>
+
+⚠️  **This project is in active development! Expect breaking changes!** ⚠️ 
 
 vue-phaser is a Vue plugin for [Phaser](https://phaser.io/). You can use vue-phaser to quickly build browser games.
 
