@@ -48,3 +48,9 @@ export const waitForSingle = async function (host, target, opts = {}) {
         throw new Error(`couldn't find '${host}.${target}' in ${opts.timeout} ms`)
     }
 }
+
+export const arraysAreEqual = (a, b) => {
+    return a && b && a.length === b.length && a.every((single, i) => {
+        return single === b[i]
+    })
+}
