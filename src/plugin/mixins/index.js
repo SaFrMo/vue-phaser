@@ -1,7 +1,7 @@
 export { default as crop } from './crop'
 export { default as customProps } from './customProps'
 export { default as depth } from './depth'
-export { default as gameObject } from './gameObject'
+export { default as gameObject } from './gameObject/index'
 export { default as movable } from './movable'
 export { default as origin } from './origin'
 export { default as physics } from './physics'
