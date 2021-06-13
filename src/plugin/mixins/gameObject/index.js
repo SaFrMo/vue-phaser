@@ -6,7 +6,6 @@ export default {
         ...name.props
     },
     mounted() {
-        console.log(this.name)
         name.mounted.bind(this)()
     },
     computed: {
