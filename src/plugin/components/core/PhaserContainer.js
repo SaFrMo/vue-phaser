@@ -1,10 +1,10 @@
 import base from '../../common/base'
-import { customProps, depth, gameObject, movable, scalable } from '../../mixins'
+import { customProps, depth, gameObject, transform } from '../../mixins'
 
 export default {
     ...base,
     name: 'phaser-container',
-    mixins: [customProps, depth, gameObject, movable, scalable],
+    mixins: [customProps, depth, gameObject, transform],
     props: {
         keepChildren: {
             type: Boolean,

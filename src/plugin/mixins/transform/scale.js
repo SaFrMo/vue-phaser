@@ -10,7 +10,7 @@ export default {
         this.refreshScale()
     },
     computed: {
-        scalableProps() {
+        scaleProps() {
             return {
                 scale: this.scale,
                 scaleX: this.scaleX,

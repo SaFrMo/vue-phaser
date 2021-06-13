@@ -8,7 +8,7 @@ export default {
         this.refreshPosition()
     },
     computed: {
-        movableProps() {
+        positionProps() {
             return {
                 x: this.x,
                 y: this.y,

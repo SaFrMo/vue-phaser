@@ -1,10 +1,10 @@
 import base from '../../common/base'
-import { customProps, depth, gameObject, movable, origin, scalable } from '../../mixins'
+import { customProps, depth, gameObject, origin, transform } from '../../mixins'
 
 export default {
     ...base,
     name: 'phaser-text',
-    mixins: [customProps, depth, gameObject, movable, origin, scalable],
+    mixins: [customProps, depth, gameObject, origin, transform],
     props: {
         textStyle: {
             type: Object,
