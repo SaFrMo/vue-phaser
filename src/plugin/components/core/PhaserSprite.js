@@ -8,7 +8,6 @@ export default {
     props: {
         spriteKey: {
             type: String,
-            required: true
         },
         usePhysics: {
             type: Boolean,

@@ -13,7 +13,6 @@ export default {
         },
         spriteKey: {
             type: String,
-            required: true
         },
     },
     computed: {
