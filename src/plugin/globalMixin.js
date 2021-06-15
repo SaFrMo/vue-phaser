@@ -6,9 +6,6 @@ export default {
         $games() {
             return this.findInAncestor('_games')
         },
-        $groups() {
-            return this.findInAncestor('_groups')
-        },
         $host() {
             return this.findInAncestor('_host')
         },
