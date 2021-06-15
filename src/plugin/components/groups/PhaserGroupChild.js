@@ -37,10 +37,8 @@ export default {
         }
     },
     beforeDestroy() {
-        if (this.group && this.group.killAndHide && this.target) {
-            // SOMETHING NOT WORKING HERE
-            const t = this.target
-            this.group.killAndHide.bind(this.group)(t)
+        if (this && this.group && this.group.killAndHide && this.target) {
+            this.group.killAndHide.bind(this.group)(this.target)
         }
 
         // if (this.target && this.target.ki) {
