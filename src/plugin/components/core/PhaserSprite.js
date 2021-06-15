@@ -16,9 +16,9 @@ export default {
         }
     },
     created() {
-        let addToHost = true
-        let args = [this.x, this.y, this.spriteKey]
+        const factorySource = this.usePhysics && this.$scene.physics ? this.$scene.physics : this.$scene
 
+<<<<<<< HEAD
         switch (true) {
             case this.$host && this.$host.type === 'Group':
                 addToHost = false
@@ -34,6 +34,10 @@ export default {
         }
 
         if (this.$host && addToHost) {
+=======
+        this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
+        if (this.$host) {
+>>>>>>> main
             this.$host.add(this.target)
         }
     },

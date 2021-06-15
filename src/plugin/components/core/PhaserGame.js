@@ -32,9 +32,6 @@ export default {
         const game = new Phaser.Game(this.gameOptions)
         this._game = game
 
-        // group metadata
-        this._groups = {}
-
         // physics metadata
         this._physicsDictionary = {
             OVERLAP_CALLBACK_QUEUE: {}
