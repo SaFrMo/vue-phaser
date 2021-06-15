@@ -23,6 +23,7 @@ export default {
             case this.$host && this.$host.type === 'Group':
                 addToHost = false
                 this.target = this.$host.create(...args, null, null, false)
+                this.$host.killAndHide.bind(this.$host)(this.target)
                 break
             case this.usePhysics && this.$scene.physics:
                 this.target = this.$scene.physics.add.sprite(...args)

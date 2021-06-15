@@ -22,10 +22,11 @@ export default {
         }
     },
     created() {
-        this.target = this.group.get(
+        this.target = this.group.getFirstDead(
+            true,
             this.x,
             this.y,
-            this.spriteKey || group.defaultKey,
+            this.spriteKey || this.group.defaultKey,
         )
 
         this.target.setActive(true)
