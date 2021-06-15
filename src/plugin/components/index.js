@@ -7,6 +7,10 @@ import PhaserSprite from './core/PhaserSprite'
 import PhaserText from './core/PhaserText'
 import PhaserVueWrap from './core/PhaserVueWrap'
 
+// groups
+import PhaserGroup from './groups/PhaserGroup'
+import PhaserGroupChild from './groups/PhaserGroupChild'
+
 // particles
 import PhaserParticles from './particles/PhaserParticles'
 import PhaserParticleEmitter from './particles/PhaserParticleEmitter'
@@ -23,6 +27,10 @@ export default [
     PhaserSprite,
     PhaserText,
     PhaserVueWrap,
+
+    // groups
+    PhaserGroup,
+    PhaserGroupChild,
 
     // particles
     PhaserParticles,
