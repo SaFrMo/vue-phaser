@@ -16,22 +16,25 @@ export default {
         }
     },
     created() {
+        let factory
         let addToHost = true
-        let args = [this.x, this.y, this.spriteKey]
+        let args = []
 
         switch (true) {
             case this.$host && this.$host.type === 'Group':
+                factory = this.$host.create.bind(this.$host)
                 addToHost = false
-                this.target = this.$host.create(...args, null, null, false)
+                args = [null, null, false]
                 break
             case this.usePhysics && this.$scene.physics:
-                this.target = this.$scene.physics.add.sprite(...args)
+                factory = this.$scene.physics.add.sprite
                 break
             default:
-                this.target = this.$scene.add.sprite(...args)
+                factory = this.$scene.add.sprite
                 break
         }
 
+        this.target = factory(this.x, this.y, this.spriteKey, ...args)
         if (this.$host && addToHost) {
             this.$host.add(this.target)
         }

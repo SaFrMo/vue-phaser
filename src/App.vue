@@ -10,18 +10,15 @@
                     <phaser-sprite sprite-key="space" />
                 </phaser-group>
 
-                <phaser-sprite sprite-key="space" />
-                <phaser-container :y="y">
-                    <phaser-group-child
-                        group-key="sprites"
-                        sprite-key="space"
-                        :x="item.x"
-                        :y="item.y"
-                        scale="0.2"
-                        :key="item.id"
-                        v-for="item in items"
-                    />
-                </phaser-container>
+                <phaser-group-child
+                    group-key="sprites"
+                    sprite-key="space"
+                    :x="item.x"
+                    :y="item.y"
+                    scale="0.2"
+                    :key="item.id"
+                    v-for="item in items"
+                />
 
                 <phaser-text :text="count" x="10" y="10" z="100" />
             </phaser-scene>
@@ -46,23 +43,25 @@ export default Vue.extend({
         }
     },
     mounted() {
-        this.update()
+        // this.update()
         setInterval(() => {
             this.items.push({
                 id: Date.now(),
                 y: Math.random() * 400,
                 x: Math.random() * 600,
             })
-            if (this.items.length > 100) {
-                this.items.shift()
+            if (this.items.length > 10) {
+                this.items.unshift()
             }
 
-            this.count = this.items.length
-        }, 50)
+            // TODO: check why group isn't instantiating properly
+
+            this.count = this.$refs.group.target.countActive()
+        }, 300)
     },
     methods: {
         update() {
-            this.y = Math.sin(Date.now() * 0.001) * 100
+            this.y = Math.sin(Date.now() * 0.001) * 100 + 300
             requestAnimationFrame(this.update)
         },
     },
