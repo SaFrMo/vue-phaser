@@ -18,17 +18,15 @@ export default {
         let addToHost = true
         let args = [this.x, this.y, this.spriteKey]
 
-        switch (true) {
-            case this.$host && this.$host.type === 'Group':
-                addToHost = false
-                this.target = this.$host.create(...args, null, null, false)
-                break
-            case this.usePhysics && this.$scene.physics:
-                this.target = this.$scene.physics.add.sprite(...args)
-                break
-            default:
-                this.target = this.$scene.add.sprite(...args)
-                break
+        if (this.$host && this.$host.type === 'Group') {
+            addToHost = false
+            this.target = this.$host.create(...args, null, null, false)
+
+        } else if (this.usePhysics && this.$scene.physics) {
+            this.target = this.$scene.physics.add.sprite(...args)
+
+        } else {
+            this.target = this.$scene.add.sprite(...args)
         }
 
         if (this.$host && addToHost) {
