@@ -18,26 +18,8 @@ export default {
     created() {
         const factorySource = this.usePhysics && this.$scene.physics ? this.$scene.physics : this.$scene
 
-<<<<<<< HEAD
-        switch (true) {
-            case this.$host && this.$host.type === 'Group':
-                addToHost = false
-                this.target = this.$host.create(...args, null, null, false)
-                this.$host.killAndHide.bind(this.$host)(this.target)
-                break
-            case this.usePhysics && this.$scene.physics:
-                this.target = this.$scene.physics.add.sprite(...args)
-                break
-            default:
-                this.target = this.$scene.add.sprite(...args)
-                break
-        }
-
-        if (this.$host && addToHost) {
-=======
         this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
         if (this.$host) {
->>>>>>> main
             this.$host.add(this.target)
         }
     },
