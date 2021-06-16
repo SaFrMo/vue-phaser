@@ -8,7 +8,6 @@ export default {
     props: {
         spriteKey: {
             type: String,
-            required: true
         },
         usePhysics: {
             type: Boolean,
@@ -16,10 +15,21 @@ export default {
         }
     },
     created() {
-        const factorySource = this.usePhysics && this.$scene.physics ? this.$scene.physics : this.$scene
+        let addToHost = true
+        let args = [this.x, this.y, this.spriteKey]
 
-        this.target = factorySource.add.sprite(this.x, this.y, this.spriteKey)
-        if (this.$host) {
+        if (this.$host && this.$host.type === 'Group') {
+            addToHost = false
+            this.target = this.$host.create(...args, null, null, false)
+
+        } else if (this.usePhysics && this.$scene.physics) {
+            this.target = this.$scene.physics.add.sprite(...args)
+
+        } else {
+            this.target = this.$scene.add.sprite(...args)
+        }
+
+        if (this.$host && addToHost) {
             this.$host.add(this.target)
         }
     },
