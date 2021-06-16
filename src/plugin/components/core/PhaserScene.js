@@ -80,6 +80,12 @@ export default {
         this._scene = new VuePhaserScene()
 
         this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
+
+        // prep scene physics listeners
+        // if (this._scene.physics){
+        //     // body creation
+        //     this._scene.physics.world.addListener('added', )
+        // }
     },
     render(h) {
         // prevent rendering children until we're fully initialized

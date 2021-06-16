@@ -9,10 +9,10 @@ export default {
         spriteKey: {
             type: String,
         },
-        usePhysics: {
-            type: Boolean,
-            default: true
-        }
+        // usePhysics: {
+        //     type: Boolean,
+        //     default: true
+        // }
     },
     created() {
         let addToHost = true
@@ -21,10 +21,9 @@ export default {
         if (this.$host && this.$host.type === 'Group') {
             addToHost = false
             this.target = this.$host.create(...args, null, null, false)
-
         } else if (this.usePhysics && this.$scene.physics) {
-            this.target = this.$scene.physics.add.sprite(...args)
-
+            this.target = this.$physics.add.sprite(...args)
+            this.$physics.world.emit('added', this.target)
         } else {
             this.target = this.$scene.add.sprite(...args)
         }

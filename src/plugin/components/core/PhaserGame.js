@@ -36,9 +36,9 @@ export default {
         this._groups = {}
 
         // physics metadata
-        this._physicsDictionary = {
-            OVERLAP_CALLBACK_QUEUE: {}
-        }
+        // this._physicsDictionary = {
+        //     OVERLAP_CALLBACK_QUEUE: {}
+        // }
     },
     async mounted() {
         console.log('v1.9')

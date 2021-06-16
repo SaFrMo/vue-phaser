@@ -15,15 +15,12 @@ export default {
         $particles() {
             return this.findInAncestor('_particles')
         },
-        $physicsDictionary() {
-            return this.findInAncestor('_physicsDictionary')
-        },
         $physics() {
             return this.$scene ? this.$scene.physics : null
         },
-        $physicsWorld() {
-            return this.$physics ? this.$physics.world : null
-        },
+        // $physicsDictionary() {
+        //     return this.findInAncestor('_physicsDictionary')
+        // },
         $scene() {
             return this.findInAncestor('_scene')
         },
