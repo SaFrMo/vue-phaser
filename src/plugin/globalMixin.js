@@ -15,6 +15,12 @@ export default {
         $physicsDictionary() {
             return this.findInAncestor('_physicsDictionary')
         },
+        $physics() {
+            return this.$scene ? this.$scene.physics : null
+        },
+        $physicsWorld() {
+            return this.$physics ? this.$physics.world : null
+        },
         $scene() {
             return this.findInAncestor('_scene')
         },
@@ -23,8 +29,6 @@ export default {
         findInAncestor(key) {
             let output = null
             let current = this
-
-            // const targetKey = key.replace(/^\$/, '_')
 
             output = current[key]
 

@@ -17,7 +17,7 @@ export default {
     data() {
         return {
             _scene: null,
-            created: false
+            created: false,
         }
     },
     created() {
@@ -33,7 +33,8 @@ export default {
         // ***NOTE***
         // `this` in this class refers to the Phaser.Scene extension,
         // NOT the Vue component - that's why we needed to declare the extra vars above
-        class MyScene extends Phaser.Scene {
+        // We're defining this class in block scope so we can configure it easily
+        class VuePhaserScene extends Phaser.Scene {
             constructor() {
                 super({
                     key: sceneKey,
@@ -76,7 +77,7 @@ export default {
         }
         // end `this` referring to the class
 
-        this._scene = new MyScene()
+        this._scene = new VuePhaserScene()
 
         this.$game.scene.add(this.sceneKey, this._scene, this.autoStart, this.sceneData)
     },

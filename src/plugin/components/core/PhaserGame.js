@@ -38,6 +38,8 @@ export default {
         }
     },
     async mounted() {
+        console.log('v1.9')
+
         if (!this.gameOptions.parent) {
             const canvas = await waitFor(this.$game, 'canvas')
             if (canvas) {
