@@ -20,7 +20,7 @@ export default {
         }
     },
     created() {
-        this.target = this._host = this.$scene.physics.add.group(this.options)
+        this.target = this._host = this.$physics.add.group(this.options)
     },
     beforeDestroy() {
         if (this.target && this.target.destroy) {

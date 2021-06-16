@@ -18,6 +18,10 @@ export default {
         let addToHost = true
         let args = [this.x, this.y, this.spriteKey]
 
+        if (this.$host) {
+            console.log(this.$host.type)
+        }
+
         if (this.$host && this.$host.type === 'Group') {
             addToHost = false
             this.target = this.$host.create(...args, null, null, false)

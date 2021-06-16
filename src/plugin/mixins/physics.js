@@ -46,26 +46,28 @@ export default {
 
         // processing queue
         const toProcess = [
-            { type: 'collider', source: this.collideWith },
-            { type: 'overlap', source: this.overlapWith },
+            { method: 'addCollider', source: this.collideWith },
+            { method: 'addOverlap', source: this.overlapWith },
         ]
 
         // for each kind of interaction we need to process (collision/overlap)...
-        toProcess.forEach(({ type, source }) => {
+        toProcess.forEach(({ method, source }) => {
             // ...check each name inside the relevant array
             source.forEach(otherName => {
                 // ...listen for when any instances of that name is added to the world...
                 this.$physics.world.addListener('added', evt => {
-                    // 'evt' will be the physicsName of the newly-added physics body
-                    if (evt === otherName) {
-                        this.addListener(evt, type)
+                    // console.log(this.physicsName, 'just saw that', evt, 'was added')
+                    // 'evt' will be the newly-added physics body
+                    if (evt.name === otherName) {
+                        // console.log('trying to add', method, 'listener for', evt)
+                        this.addListener(evt, method)
                     }
                 })
 
                 // ...and handle any existing instances
                 const existingOther = this.$physics.world.bodies.entries.map(body => body.gameObject).find(go => go.name === otherName)
                 if (existingOther) {
-                    this.addListener(existingOther, type)
+                    this.addListener(existingOther, method)
                 }
             })
         })
@@ -76,7 +78,7 @@ export default {
         this.refreshBodySize()
 
         // flag that we've been added to the world
-        this.$physics.world.emit('added', this.physicsName)
+        this.$physics.world.emit('added', this.target)
     },
     computed: {
         usePhysics() {
@@ -84,13 +86,11 @@ export default {
         }
     },
     methods: {
-        addListener(otherTarget, listenerType = 'collider') {
-            console.log('listener for', listenerType)
-            this.$physics.add[listenerType](this.target, otherTarget,
+        addListener(otherTarget, method = 'addCollider') {
+            this.$physics.world[method](this.target, otherTarget,
                 // overlap event
                 (object1, object2) => {
                     const callbackArgs = { object1, object2, self: this.target, other: otherTarget }
-                    console.log('emitting', callbackArgs)
                     this.$emit('overlap', callbackArgs)
                     // otherComponent.$emit('overlap', callbackArgs)
                 },
