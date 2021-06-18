@@ -19,11 +19,11 @@ export default {
             default: null
         },
     },
-    data() {
-        return {
-            finalPhysicsKey: ''
-        }
-    },
+    // data() {
+    //     return {
+    //         finalPhysicsKey: ''
+    //     }
+    // },
     mounted() {
         // add to physics dictionary
         // this.finalPhysicsKey = this.physicsName || `obj${Object.keys(this.$physicsDictionary).length}`
@@ -87,6 +87,12 @@ export default {
     },
     methods: {
         addListener(otherTarget, method = 'addCollider') {
+            // in each of these callbacks, the arguments are:
+            // * object1: the first object that actually collided/overlapped
+            // * object2: the second object that actually collided/overlapped
+            // * self: the physics container of one object (can be a sprite, ArcadeSprite, PhysicsGroup, etc)
+            // * other: " of the other object
+
             this.$physics.world[method](this.target, otherTarget,
                 // overlap event
                 (object1, object2) => {
