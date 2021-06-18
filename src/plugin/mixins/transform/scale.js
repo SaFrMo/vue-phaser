@@ -22,6 +22,8 @@ export default {
     },
     methods: {
         refreshScale() {
+            if (!this.target) return
+
             if (this.displayWidth === null && this.displayHeight === null) {
                 // using scale values if no display sizes set
                 const targetScaleX = this.scale === null ? this.scaleX : this.scale
@@ -41,14 +43,20 @@ export default {
     },
     watch: {
         scale(newVal) {
+            if (!this.target) return
+
             const x = newVal === null ? this.scaleX : newVal
             const y = newVal === null ? this.scaleY : newVal
             this.target.setScale(x, y)
         },
         scaleX(newVal) {
+            if (!this.target) return
+
             this.target.setScale(newVal)
         },
         scaleY(newVal) {
+            if (!this.target) return
+
             this.target.setScale(this.scale === null ? this.scaleX : this.scale, newVal)
         },
     }

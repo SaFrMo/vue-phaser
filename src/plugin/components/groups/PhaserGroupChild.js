@@ -14,19 +14,46 @@ export default {
         spriteKey: {
             type: String,
         },
+        spriteFrame: {
+            type: [String, Number],
+            default: null
+        }
     },
     computed: {
         group() {
             return this.$groups[this.groupKey]
         }
     },
-    created() {
+    mounted() {
+        if (!this.group) {
+            console.error(`Missing group ${this.groupKey}`)
+            return
+        }
+
+        const key = this.spriteKey || this.group.defaultKey
+
+        // get first available group instance
         this.target = this.group.getFirstDead(
-            true,
+            false,
             this.x,
             this.y,
-            this.spriteKey || this.group.defaultKey,
+            key,
+            this.spriteFrame
         )
+
+        // if none ready, make a new one
+        if (!this.target) {
+            this.target = this.group.create(
+                this.x,
+                this.y,
+                key,
+                this.spriteFrame
+            )
+            this.$emit('created-new', this.target)
+        } else {
+            this.$emit('used-existing', this.target)
+        }
+
 
         this.target.setActive(true)
         this.target.setVisible(true)
@@ -35,6 +62,7 @@ export default {
         if (this.$host) {
             this.$host.add(this.target)
         }
+        this.refreshScale()
     },
     beforeDestroy() {
         if (this && this.group && this.group.killAndHide && this.target) {

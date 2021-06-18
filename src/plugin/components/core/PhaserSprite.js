@@ -9,6 +9,10 @@ export default {
         spriteKey: {
             type: String,
         },
+        spriteFrame: {
+            type: [String, Number],
+            default: null
+        }
         // usePhysics: {
         //     type: Boolean,
         //     default: true
@@ -16,11 +20,17 @@ export default {
     },
     created() {
         let addToHost = true
-        let args = [this.x, this.y, this.spriteKey]
+        let args = [this.x, this.y, this.spriteKey, this.spriteFrame]
 
         if (this.$host && this.$host.type === 'Group') {
             addToHost = false
-            this.target = this.$host.create(...args, null, null, false)
+            // get first available target
+            this.target = this.$host.create(...args, false, false)
+
+            // if (!this.target) {
+            //     // if none ready, make a new one
+            //     this.target = this.$host.create(...args)
+            // }
             // } else if (this.$host && this.$host.type === 'PhysicsGroup') {
             //     addToHost = false
             //     this.target = this.$host.create(...args)

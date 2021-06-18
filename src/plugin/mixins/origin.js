@@ -10,6 +10,8 @@ export default {
     },
     methods: {
         refreshOrigin() {
+            if (!this.target) return
+
             this.target.setOrigin(...(Array.isArray(this.origin) ? this.origin : [this.origin]))
         }
     },

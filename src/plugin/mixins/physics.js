@@ -33,6 +33,8 @@ export default {
     },
     methods: {
         initPhysics() {
+            if (!this.target) return
+
             // save name
             this.target.name = this.physicsName
 

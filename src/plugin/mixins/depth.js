@@ -14,11 +14,15 @@ export default {
     },
     methods: {
         refreshDepth() {
+            if (!this.target) return
+
             this.target.setDepth(parseFloat(this.depth))
         },
     },
     watch: {
         depth(newVal) {
+            if (!this.target) return
+
             this.target.setDepth(parseFloat(newVal))
         },
 

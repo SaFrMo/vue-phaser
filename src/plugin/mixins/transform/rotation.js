@@ -14,6 +14,8 @@ export default {
     },
     methods: {
         refreshRotation() {
+            if (!this.target) return
+
             if (this.rotation !== null) {
                 this.target.setRotation(this.rotation)
             } else if (this.angle !== null) {

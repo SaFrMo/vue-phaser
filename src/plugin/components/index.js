@@ -15,6 +15,9 @@ import PhaserGroupChild from './groups/PhaserGroupChild'
 import PhaserParticles from './particles/PhaserParticles'
 import PhaserParticleEmitter from './particles/PhaserParticleEmitter'
 
+// pool
+import PhaserPool from './pool/PhaserPool'
+
 // physics
 import PhysicsGroup from './physics/PhysicsGroup'
 
@@ -36,6 +39,9 @@ export default [
     PhaserParticles,
     PhaserParticleEmitter,
 
+    // pool
+    PhaserPool,
+
     // physics
-    PhysicsGroup
+    PhysicsGroup,
 ]

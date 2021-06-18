@@ -13,7 +13,7 @@ export default {
     methods: {
         refreshCrop() {
             // ignore if no crop
-            if (this.crop === null) return
+            if (this.crop === null || !this.target) return
 
             // if any values are 0<=n<1, treat them as percentages
             const finalCrop = this.crop.map((v, i) => {
