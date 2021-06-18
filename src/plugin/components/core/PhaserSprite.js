@@ -21,6 +21,10 @@ export default {
         if (this.$host && this.$host.type === 'Group') {
             addToHost = false
             this.target = this.$host.create(...args, null, null, false)
+            // } else if (this.$host && this.$host.type === 'PhysicsGroup') {
+            //     addToHost = false
+            //     this.target = this.$host.create(...args)
+            //     this.$physics.world.emit('added', this.target)
         } else if (this.usePhysics && this.$scene.physics) {
             this.target = this.$physics.add.sprite(...args)
             this.$physics.world.emit('added', this.target)
@@ -38,6 +42,9 @@ export default {
         }
     },
     beforeDestroy() {
+        if (this.$host && this.$host.remove) {
+            this.$host.remove(this.target)
+        }
         if (this.target && this.target.destroy) {
             this.target.destroy()
         }

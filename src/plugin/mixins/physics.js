@@ -24,6 +24,7 @@ export default {
         if (!this.usePhysics) return
 
         // init physics
+        this.initPhysics()
     },
     computed: {
         usePhysics() {
@@ -41,7 +42,7 @@ export default {
                 { method: 'addOverlap', source: this.overlapWith },
             ]
 
-            // for each kind of interaction we need to process (collision/overlap)...
+            // for each kind of interaction we need to process (collision, overlap, etc?)...
             toProcess.forEach(({ method, source }) => {
                 // ...check each name inside the relevant array
                 source.forEach(otherName => {
