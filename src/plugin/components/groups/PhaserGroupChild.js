@@ -57,6 +57,7 @@ export default {
 
         this.target.setActive(true)
         this.target.setVisible(true)
+        this.refreshCustomProps()
         this.$emit('activated', { item: this.target })
 
         if (this.$host) {
