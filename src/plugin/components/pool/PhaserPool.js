@@ -3,8 +3,7 @@ export default {
     name: 'phaser-pool',
     render(h) {
         // wrap each child in a physics or regular group
-        const list = this.$slots.default.map((element) => {
-
+        const list = this.$slots.default.filter(s => s.tag).map((element) => {
             const { propsData } = element.componentOptions
             const key = propsData.groupKey || propsData.spriteKey || propsData.poolKey
 
@@ -13,16 +12,12 @@ export default {
                 return
             }
 
-            // if (propsData.physicsName) {
-            //     return h('phaser-physics-group', { props: { groupKey: key } }, [element])
-            // } else {
             return h('phaser-group', {
                 props: {
                     groupKey: key,
                     physicsName: propsData.physicsName
                 }
             }, [element])
-            // }
         });
         return h('div', list)
     }
