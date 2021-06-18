@@ -22,10 +22,11 @@ export default {
         let addToHost = true
         let args = [this.x, this.y, this.spriteKey, this.spriteFrame]
 
-        if (this.$host && this.$host.type === 'Group') {
+        if (this.isChildOfGroup) {
             addToHost = false
             // get first available target
             this.target = this.$host.create(...args, false, false)
+            this.$host.killAndHide.bind(this.$host)(this.target)
 
             // if (!this.target) {
             //     // if none ready, make a new one
@@ -46,12 +47,22 @@ export default {
             this.$host.add(this.target)
         }
     },
+    computed: {
+        isChildOfGroup() {
+            return this.$host && (this.$host.type === 'Group' || this.$host.type === 'PhysicsGroup')
+        }
+    },
     watch: {
         spriteKey(newVal) {
             this.target.setTexture(newVal)
         }
     },
     beforeDestroy() {
+        if (this.$host && this.isChildOfGroup) {
+            this.$host.killAndHide.bind(this.$host)(this.target)
+            return
+        }
+
         if (this.$host && this.$host.remove) {
             this.$host.remove(this.target)
         }

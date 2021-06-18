@@ -9,7 +9,11 @@ export default {
         // vue-phaser options
         groupKey: {
             type: String,
-            required: true
+            default: null,
+        },
+        physicsName: {
+            type: String,
+            default: null,
         },
 
         // config options
@@ -27,8 +31,22 @@ export default {
         }
     },
     created() {
-        this.target = this._host = this.$scene.add.group(this.children, this.config)
-        this.$groups[this.groupKey] = this.target
+        if (this.groupKey === null && this.physicsName === null) {
+            console.error('Must provide either a group-key or a physics-name to PhaserGroup.')
+            return
+        }
+
+        const key = this.groupKey || this.physicsName
+
+        if (this.physicsName) {
+            this.target = this._host = this.$physics.add.group(this.config)
+            this.target.name = this.physicsName
+            this.$physics.world.emit('added', this.target)
+        } else {
+            this.target = this._host = this.$scene.add.group(this.children, this.config)
+        }
+
+        this.$groups[key] = this.target
     },
     mounted() {
         // set default key if group only has 1 child

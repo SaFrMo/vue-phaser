@@ -20,10 +20,10 @@ export default {
         }
     },
     created() {
-        console.log(this, this.$physics)
-        this.target = this._host = this.$physics.add.group(this.options)
-        this.target.name = this.physicsName
-        this.$physics.world.emit('added', this.target)
+        // console.log(this, this.$physics)
+        // this.target = this._host = this.$physics.add.group(this.options)
+        // this.target.name = this.physicsName
+        // this.$physics.world.emit('added', this.target)
     },
     beforeDestroy() {
         if (this.target && this.target.destroy) {

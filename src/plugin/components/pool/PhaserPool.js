@@ -13,11 +13,16 @@ export default {
                 return
             }
 
-            if (propsData.physicsName) {
-                return h('phaser-physics-group', { props: { groupKey: key } }, [element])
-            } else {
-                return h('phaser-group', { props: { groupKey: key } }, [element])
-            }
+            // if (propsData.physicsName) {
+            //     return h('phaser-physics-group', { props: { groupKey: key } }, [element])
+            // } else {
+            return h('phaser-group', {
+                props: {
+                    groupKey: key,
+                    physicsName: propsData.physicsName
+                }
+            }, [element])
+            // }
         });
         return h('div', list)
     }
