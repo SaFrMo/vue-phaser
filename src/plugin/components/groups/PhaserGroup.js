@@ -1,17 +1,15 @@
 import base from '../../common/base'
 // import { customProps, depth, gameObject, origin, transform } from '../../mixins'
+import { physics } from '../../mixins'
 
 export default {
     ...base,
     name: 'phaser-group',
+    mixins: [physics],
     // mixins: [customProps, depth, gameObject, origin, transform],
     props: {
         // vue-phaser options
         groupKey: {
-            type: String,
-            default: null,
-        },
-        physicsName: {
             type: String,
             default: null,
         },

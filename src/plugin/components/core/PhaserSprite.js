@@ -39,6 +39,7 @@ export default {
             // if none ready, make a new one
             if (!this.target) {
                 this.target = this.group.create(...args)
+                console.log('created', key)
                 this.$emit('created-new', this.target)
             } else {
                 this.$emit('used-existing', this.target)
@@ -88,6 +89,35 @@ export default {
         if (this.target && this.target.destroy) {
             this.target.destroy()
         }
-    }
+    },
+    // render(h) {
+    //     // if we have a pool/group key and we're not the reference item,
+    //     if (this.poolKey && this.isChildOfGroup) {
+    //         if (this.physicsName) {
+    //             this.group.name = this.physicsName
+    //         }
+    //     }
+    //     return h('div', this.$slots.default || '')
+
+    //     // // wrap each child in a physics or regular group
+    //     // const list = this.$slots.default.filter(s => s.tag).map((element) => {
+    //     //     const { propsData } = element.componentOptions
+    //     //     const key = propsData.groupKey || propsData.spriteKey || propsData.poolKey
+
+    //     //     if (!key) {
+    //     //         console.error('Please provide a sprite-key, group-key, or pool-key prop for each child of a phaser-pool')
+    //     //         return
+    //     //     }
+
+    //     //     return h('phaser-group', {
+    //     //         props: {
+    //     //             groupKey: key,
+    //     //             physicsName: propsData.physicsName
+    //     //         }
+    //     //     }, [element])
+    //     // });
+    //     // return h('div', list)
+
+    // }
 }
 
