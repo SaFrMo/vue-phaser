@@ -21,7 +21,6 @@
                     scale="5"
                     v-for="i in 3"
                     :key="i"
-                    physics-name="42"
                 />
 
                 <player-sprite />

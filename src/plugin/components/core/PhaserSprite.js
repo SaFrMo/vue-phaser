@@ -43,6 +43,7 @@ export default {
             } else {
                 this.$emit('used-existing', this.target)
             }
+            console.log(this.target)
 
             this.target.setActive(true)
             this.target.setVisible(true)
