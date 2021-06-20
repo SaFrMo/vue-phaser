@@ -40,29 +40,39 @@ export default {
 
             // processing queue
             const toProcess = [
-                { method: 'addCollider', source: this.collideWith },
-                { method: 'addOverlap', source: this.overlapWith },
+                { methodName: 'addCollider', source: this.collideWith },
+                { methodName: 'addOverlap', source: this.overlapWith },
             ]
 
             // for each kind of interaction we need to process (collision, overlap, etc?)...
-            toProcess.forEach(({ method, source }) => {
+            toProcess.forEach(({ methodName, source }) => {
                 // ...check each name inside the relevant array
                 source.forEach(otherName => {
                     // ...listen for when any instances of that name is added to the world...
                     this.$physics.world.addListener('added', evt => {
-                        // console.log(this.physicsName, 'just saw that', evt, 'was added')
                         // 'evt' will be the newly-added physics body
                         if (evt.name === otherName) {
                             // console.log('trying to add', method, 'listener for', evt)
-                            this.addListener(evt, method)
+                            this.createCollider(evt, methodName)
                         }
                     })
 
                     // ...and handle any existing instances
-                    const existingOther = this.$physics.world.bodies.entries.map(body => body.gameObject).find(go => go.name === otherName)
-                    if (existingOther) {
-                        this.addListener(existingOther, method)
+                    const existingOthers =
+                        // individual bodies
+                        this.$physics.world.bodies.entries
+                            .map(body => body.gameObject)
+                            .filter(go => go.name === otherName)
+
+                    // groups
+                    const existingGroup = this.$groups[otherName]
+                    if (existingGroup && existingGroup.type === "PhysicsGroup") {
+                        existingOthers.push(existingGroup)
                     }
+
+                    existingOthers.forEach(other => {
+                        this.createCollider(other, methodName)
+                    })
                 })
             })
 
@@ -72,14 +82,14 @@ export default {
             // flag that we've been added to the world
             this.$physics.world.emit('added', this.target)
         },
-        addListener(otherTarget, method = 'addCollider') {
+        createCollider(otherTarget, methodName = 'addCollider') {
             // in each of these callbacks, the arguments are:
             // * object1: the first object that actually collided/overlapped
             // * object2: the second object that actually collided/overlapped
             // * self: the physics container of one object (can be a sprite, ArcadeSprite, PhysicsGroup, etc)
             // * other: " of the other object
 
-            this.$physics.world[method](this.target, otherTarget,
+            this.$physics.world[methodName](this.target, otherTarget,
                 // overlap event
                 (object1, object2) => {
                     const callbackArgs = { object1, object2, self: this.target, other: otherTarget }

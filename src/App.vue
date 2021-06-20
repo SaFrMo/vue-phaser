@@ -7,15 +7,11 @@
                 :preload-queue="preloadQueue"
             >
                 <phaser-pool>
-                    <phaser-sprite
-                        pool-key="42"
-                        sprite-key="42"
-                        physics-name="42"
-                    />
+                    <phaser-sprite physics-name="42" sprite-key="42" />
                 </phaser-pool>
 
                 <phaser-sprite
-                    pool-key="42"
+                    group-key="42"
                     :x="300 + 100 * (i - 1)"
                     :y="300"
                     scale="5"

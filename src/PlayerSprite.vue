@@ -15,8 +15,8 @@
 export default {
     data() {
         return {
-            x: 200,
-            y: 300,
+            x: 400,
+            y: 400,
 
             xSpeed: 0,
             ySpeed: 0,

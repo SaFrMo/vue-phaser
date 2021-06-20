@@ -45,6 +45,8 @@ export default {
         }
 
         this.$groups[key] = this.target
+
+        this.$emit('created', { target: this.target, group: this.target })
     },
     mounted() {
         // set default key if group only has 1 child

@@ -43,6 +43,8 @@ export default {
             }
             init(data) {
                 if (_init) _init(this, data)
+
+                vm.$emit('initialized', this)
             }
             preload(data) {
                 if (_preload) _preload(this, data)
@@ -70,6 +72,8 @@ export default {
                 if (_create) _create(this, data)
                 // indicate to the Vue component that we're initialized
                 vm.created = true
+
+                vm.$emit('created', this)
             }
             update(time, delta) {
                 if (_update) _update(this, time, delta)
