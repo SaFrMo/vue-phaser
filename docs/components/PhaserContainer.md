@@ -16,11 +16,17 @@ You can use a `phaser-container` to place and move several sprites at once, for 
 </phaser-container>
 ```
 
-# Props
+## Props
 
-Extends the following mixins:
+Includes all props from the following mixins:
 
-* customProps
-* depth
-* gameObject 
-* transform
+* [customProps](/mixins/customProps)
+* [depth](/mixins/depth)
+* [gameObject](/mixins/gameObject)
+* [transform](mixins/transform)
+
+## Events
+
+| Name      | Arguments                                                       |
+| --------- | --------------------------------------------------------------- |
+| `created` | `{ container, target }`, both referencing the created Container |
