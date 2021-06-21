@@ -4,13 +4,21 @@ module.exports = {
     port: 3000,
     themeConfig: {
         sidebar: [
-            '/',
+            ['/', 'Introduction'],
             {
-                title: 'Core',
+                title: 'Examples',
+                collapsable: false,
                 children: [
-                    'core/essentials'
+                    'examples/sprites'
                 ]
-            }
+            },
+            // {
+            //     title: 'Components',
+            //     collapsable: false,
+            //     children: [
+            //         'components/PhaserGame'
+            //     ],
+            // },
         ]
     }
 }
