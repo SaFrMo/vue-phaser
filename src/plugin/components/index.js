@@ -9,7 +9,6 @@ import PhaserVueWrap from './core/PhaserVueWrap'
 
 // groups
 import PhaserGroup from './groups/PhaserGroup'
-import PhaserGroupChild from './groups/PhaserGroupChild'
 
 // particles
 import PhaserParticles from './particles/PhaserParticles'
@@ -17,9 +16,6 @@ import PhaserParticleEmitter from './particles/PhaserParticleEmitter'
 
 // pool
 import PhaserPool from './pool/PhaserPool'
-
-// physics
-import PhysicsGroup from './physics/PhysicsGroup'
 
 export default [
     // core
@@ -33,7 +29,6 @@ export default [
 
     // groups
     PhaserGroup,
-    PhaserGroupChild,
 
     // particles
     PhaserParticles,
@@ -41,7 +36,4 @@ export default [
 
     // pool
     PhaserPool,
-
-    // physics
-    PhysicsGroup,
 ]
