@@ -73,7 +73,8 @@ export default {
                 // indicate to the Vue component that we're initialized
                 vm.created = true
 
-                vm.$emit('created', this)
+                // created
+                vm.$emit('created', { scene: this, target: this })
             }
             update(time, delta) {
                 if (_update) _update(this, time, delta)

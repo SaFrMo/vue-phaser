@@ -13,6 +13,9 @@ export default {
     },
     created() {
         this.target = this._host = this.$scene.add.container()
+
+        // created
+        this.$emit('created', { container: this.target, target: this.target })
     },
     beforeDestroy() {
         const destroyChildren = !this.keepChildren

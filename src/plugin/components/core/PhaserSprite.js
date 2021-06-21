@@ -70,6 +70,9 @@ export default {
         if (this.$host && addToHost) {
             this.$host.add(this.target)
         }
+
+        // created
+        this.$emit('created', { sprite: this.target, target: this.target })
     },
     computed: {
         group() {

@@ -7,7 +7,6 @@ export default {
     name: 'phaser-game',
     data() {
         return {
-            id: -1,
             _game: null,
         }
     },
@@ -35,14 +34,10 @@ export default {
         // group metadata
         this._groups = {}
 
-        // physics metadata
-        // this._physicsDictionary = {
-        //     OVERLAP_CALLBACK_QUEUE: {}
-        // }
+        // created
+        this.$emit('created', { game: this._game, target: this._game })
     },
     async mounted() {
-        console.log('v1.9')
-
         if (!this.gameOptions.parent) {
             const canvas = await waitFor(this.$game, 'canvas')
             if (canvas) {

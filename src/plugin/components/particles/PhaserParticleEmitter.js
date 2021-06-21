@@ -18,6 +18,9 @@ export default {
         this.target = this.$particles.createEmitter({
             ...this.config
         })
+
+        // created
+        this.$emit('created', { emitter: this.target, target: this.target })
     },
 }
 

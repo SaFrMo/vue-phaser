@@ -16,6 +16,8 @@ export default {
         if (this.$host) {
             this.$host.add(this.target)
         }
+
+        this.$emit('created', { particles: this.target, target: this.target })
     },
 }
 

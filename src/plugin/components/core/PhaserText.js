@@ -19,6 +19,9 @@ export default {
         if (this.$host) {
             this.$host.add(this.target)
         }
+
+        // created
+        this.$emit('created', { text: this.target, target: this.target })
     },
     watch: {
         text(newVal) {

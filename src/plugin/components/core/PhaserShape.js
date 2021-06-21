@@ -20,6 +20,9 @@ export default {
         if (this.$host) {
             this.$host.add(this.target)
         }
+
+        // created
+        this.$emit('created', { shape: this.target, target: this.target })
     },
     beforeDestroy() {
         if (this.target && this.target.destroy) {
