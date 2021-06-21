@@ -3,20 +3,25 @@
   "version": "0.1.91",
   "main": "src/plugin",
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "dev": "concurrently \"vue-cli-service serve\" \"npm run docs:dev\"",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "3.14.0",
     "phaser": "3.55.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-server-renderer": "2.6.12"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "concurrently": "6.2.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "1.8.2"
   },
   "description": "Vue 2 wrapper for Phaser.",
   "repository": {
