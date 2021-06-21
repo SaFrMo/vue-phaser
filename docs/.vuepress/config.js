@@ -5,20 +5,26 @@ module.exports = {
     themeConfig: {
         sidebar: [
             ['/', 'Introduction'],
-            {
-                title: 'Examples',
-                collapsable: false,
-                children: [
-                    'examples/sprites'
-                ]
-            },
             // {
-            //     title: 'Components',
+            //     title: 'Examples',
             //     collapsable: false,
             //     children: [
-            //         'components/PhaserGame'
-            //     ],
+            //         'examples/sprites'
+            //     ]
             // },
+            {
+                title: 'Components',
+                collapsable: false,
+                children: [
+                    'components/PhaserContainer',
+                    'components/PhaserGame',
+                    'components/PhaserScene',
+                    'components/PhaserShape',
+                    'components/PhaserSprite',
+                    'components/PhaserText',
+                    'components/PhaserVueWrap',
+                ],
+            },
         ]
     }
 }

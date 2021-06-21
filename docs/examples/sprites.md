@@ -1,4 +1,4 @@
-# Sprite
+# Sprites
 
 ```html
 
