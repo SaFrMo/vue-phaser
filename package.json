@@ -5,7 +5,6 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "sh docs/deploy.sh",
     "dev": "concurrently \"vue-cli-service serve\" \"npm run docs:dev\"",
     "build": "vue-cli-service build"
   },
