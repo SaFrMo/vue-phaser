@@ -25,6 +25,19 @@ module.exports = {
                     'components/PhaserVueWrap',
                 ],
             },
+            {
+                title: 'Mixins',
+                collapsable: false,
+                children: [
+                    'mixins/crop',
+                    'mixins/customProps',
+                    'mixins/depth',
+                    'mixins/gameObject',
+                    'mixins/origin',
+                    'mixins/physics',
+                    'mixins/transform',
+                ],
+            },
         ]
     }
 }

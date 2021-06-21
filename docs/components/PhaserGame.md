@@ -1,6 +1,6 @@
 # PhaserGame
 
-`phaser-game` wraps one or more Phaser scenes. It should be 
+`phaser-game` wraps one or more Phaser scenes. It should be the root component of any Phaser game.
 
 ```html
 <phaser-game
@@ -30,3 +30,9 @@ Default game options are:
 ```
 
 These are overwritten by any values you provide in the `options` object.
+
+## Events
+
+| Name      | Arguments                                             |
+| --------- | ----------------------------------------------------- |
+| `created` | `{ game, target }`, both referencing the created game |
