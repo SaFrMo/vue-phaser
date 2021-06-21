@@ -3,11 +3,11 @@
         :x="x"
         :y="y"
         physics-name="player"
-        :overlap-with="['42']"
-        @overlap="onOverlap"
+        :collide-with="['42']"
         sprite-key="space"
         display-width="50"
         display-height="50"
+        collide-world
     />
 </template>
 
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             x: 400,
-            y: 400,
+            y: 200,
 
             xSpeed: 0,
             ySpeed: 0,

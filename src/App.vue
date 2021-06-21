@@ -6,9 +6,9 @@
                 auto-start
                 :preload-queue="preloadQueue"
             >
-                <phaser-pool>
-                    <phaser-sprite physics-name="42" sprite-key="42" />
-                </phaser-pool>
+                <phaser-group physics-name="42">
+                    <phaser-sprite sprite-key="42" />
+                </phaser-group>
 
                 <phaser-sprite
                     group-key="42"
@@ -17,6 +17,7 @@
                     scale="5"
                     v-for="i in 3"
                     :key="i"
+                    collide-world
                 />
 
                 <player-sprite />
@@ -42,6 +43,9 @@ export default Vue.extend({
                     default: 'arcade',
                     arcade: {
                         debug: true,
+                        gravity: {
+                            y: 300,
+                        },
                     },
                 },
             },

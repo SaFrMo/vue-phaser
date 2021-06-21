@@ -6,6 +6,10 @@ export default {
     name: 'phaser-sprite',
     mixins: [crop, customProps, depth, gameObject, origin, physics, transform],
     props: {
+        collideWorld: {
+            type: Boolean,
+            default: false
+        },
         groupKey: {
             type: String,
             default: null,
@@ -57,6 +61,11 @@ export default {
             this.target = this.$scene.add.sprite(...args)
         }
 
+        // body setup
+        if (this.target.body) {
+            this.target.body.collideWorldBounds = this.collideWorld
+        }
+
         // add to host if needed
         if (this.$host && addToHost) {
             this.$host.add(this.target)
@@ -76,7 +85,7 @@ export default {
         }
     },
     beforeDestroy() {
-        if (this.$host && this.isChildOfGroup) {
+        if (this && this.target && this.$host && this.isChildOfGroup) {
             this.$host.killAndHide.bind(this.$host)(this.target)
             return
         }
